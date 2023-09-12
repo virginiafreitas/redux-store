@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers"
-import { useState } from "../../utils/GlobalState";
+// import { useState } from "../../utils/GlobalState";
+import { useSelector, useDispatch } from "react-redux";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
 function ProductItem(item) {
-  const [state, dispatch] = useState();
-
+  // const [state, dispatch] = useState();
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
   const {
     image,
     name,
