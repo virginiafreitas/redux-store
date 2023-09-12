@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import ProductItem from '../ProductItem';
-import { useState } from '../../utils/GlobalState';
+// import { useState } from '../../utils/GlobalState';
+import { useSelector, useDispatch } from 'react-redux';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
@@ -8,9 +9,11 @@ import { idbPromise } from '../../utils/helpers';
 import spinner from '../../assets/spinner.gif';
 
 function ProductList() {
-  const [state, dispatch] = useState();
+  // const [state, dispatch] = useState();
+  const dispatch = useDispatch();
 
-  const { currentCategory } = state;
+  const { currentCategory } = useSelector((state) => state);
+  const products = useSelector((state) => state.products);
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -35,10 +38,10 @@ function ProductList() {
 
   function filterProducts() {
     if (!currentCategory) {
-      return state.products;
+      return products;
     }
 
-    return state.products.filter(
+    return products.filter(
       (product) => product.category._id === currentCategory
     );
   }
