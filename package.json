@@ -20,5 +20,8 @@
     "@vitejs/plugin-react": "^4.0.4",
     "react-redux": "^8.1.2",
     "redux": "^4.2.1"
+  },
+  "engines": {
+    "npm": "7.x"
   }
 }
