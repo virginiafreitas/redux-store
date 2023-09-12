@@ -1,6 +1,6 @@
 // replace usestorecontext with usestate
 import { useDispatch } from 'react-redux';
-import { useState } from "../../utils/GlobalState";
+// import { useState } from "../../utils/GlobalState";
 import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
