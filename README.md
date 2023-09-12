@@ -1,4 +1,4 @@
-# 22 State: Redux Store (Extra Credit)
+# Redux Store
   [![GitHub License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
   ### Table of Content
