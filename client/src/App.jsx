@@ -6,11 +6,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-
 import Nav from './components/Nav';
-import { StoreProvider } from './utils/GlobalState';
-
-
+// import { StoreProvider } from './utils/GlobalState';
 import store from './utils/store'
 import { Provider } from 'react-redux'
 
@@ -20,7 +17,7 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = store.getState().authToken;
   return {
     headers: {
       ...headers,
